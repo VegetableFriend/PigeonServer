@@ -9,13 +9,6 @@ import java.io.IOException;
 @RestController("file")
 @CrossOrigin
 public class UploadController {
-
-    @RequestMapping(value = "/precreare", method = RequestMethod.POST)
-    public String filePreCreate() {
-        //TODO: code
-        return "File Precreate";
-    }
-
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     public String processUpload(@RequestPart("file") MultipartFile multipartFile) {
         File destFile = new File("/Users/vegetablefriend/Desktop/uploads/" + multipartFile.getOriginalFilename());

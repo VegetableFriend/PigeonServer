@@ -1,8 +1,14 @@
-package org.vf.business.file;
+package org.vf.business.file.slice;
 
 enum FileSliceStatus {
-    FILE_SLICE_STATUS_NOT_UPLOAD,
-    FILE_SLICE_STATUS_UPLOADED
+    FILE_SLICE_STATUS_NOT_UPLOAD(0),
+    FILE_SLICE_STATUS_UPLOADED(1);
+
+    public final int statusValue;
+
+    private FileSliceStatus(int statusValueValue) {
+        this.statusValue = statusValueValue;
+    }
 }
 
 public class FileSlice {
@@ -12,7 +18,7 @@ public class FileSlice {
 
     private String fileSliceMD5;
 
-    private FileSliceStatus fileSliceStatus;
+    private int fileSliceStatus;
 
     public int getFileSliceID() {
         return fileSliceID;
@@ -38,11 +44,17 @@ public class FileSlice {
         this.fileSliceMD5 = fileSliceMD5;
     }
 
-    public FileSliceStatus getFileSliceStatus() {
+    public int getFileSliceStatus() {
         return fileSliceStatus;
     }
 
-    public void setFileSliceStatus(FileSliceStatus fileSliceStatus) {
+    public void setFileSliceStatus(int fileSliceStatus) {
         this.fileSliceStatus = fileSliceStatus;
+    }
+
+    FileSlice(int fid, String fileSliceMD5) {
+        this.fid = fid;
+        this.fileSliceMD5 = fileSliceMD5;
+        this.fileSliceStatus = FileSliceStatus.FILE_SLICE_STATUS_NOT_UPLOAD.statusValue;
     }
 }

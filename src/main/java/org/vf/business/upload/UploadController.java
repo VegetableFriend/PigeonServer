@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 
-@RestController("file")
+@RestController
 @CrossOrigin
 public class UploadController {
     @RequestMapping(value = "/upload", method = RequestMethod.POST)

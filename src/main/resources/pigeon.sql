@@ -14,4 +14,8 @@ CREATE TABLE IF NOT EXISTS files(fid INT AUTO_INCREMENT PRIMARY KEY,
                                  file_status INT,
                                  filename VARCHAR(20),
                                  filesize INT);
+
+CREATE TABLE IF NOT EXISTS user_files(releation_id INT AUTO_INCREMENT PRIMARY KEY,
+                                      uid INT,
+                                      fid INT);
 -- VERSION 1.0 --

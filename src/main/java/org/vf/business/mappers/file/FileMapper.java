@@ -1,4 +1,4 @@
-package org.vf.business.mappers;
+package org.vf.business.mappers.file;
 
 import org.apache.ibatis.annotations.*;
 import org.vf.business.file.File;

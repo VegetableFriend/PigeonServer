@@ -1,16 +1,8 @@
 package org.vf.business.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
-import org.vf.business.mappers.UserMapper;
-
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import org.vf.business.mappers.user.UserMapper;
 
 @Component
 public class UserDAO {

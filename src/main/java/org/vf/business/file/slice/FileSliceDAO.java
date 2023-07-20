@@ -3,7 +3,7 @@ package org.vf.business.file.slice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.vf.business.file.File;
-import org.vf.business.mappers.FileSliceMapper;
+import org.vf.business.mappers.file.FileSliceMapper;
 
 import java.util.List;
 @Component

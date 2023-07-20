@@ -1,4 +1,3 @@
--- VERSION 1.0 --
 CREATE TABLE IF NOT EXISTS users(uid INT AUTO_INCREMENT PRIMARY KEY,
                                  account VARCHAR(20),
                                  password VARCHAR(20));
@@ -18,4 +17,14 @@ CREATE TABLE IF NOT EXISTS files(fid INT AUTO_INCREMENT PRIMARY KEY,
 CREATE TABLE IF NOT EXISTS user_files(releation_id INT AUTO_INCREMENT PRIMARY KEY,
                                       uid INT,
                                       fid INT);
--- VERSION 1.0 --
+
+CREATE TABLE IF NOT EXISTS equities(equity_id INT AUTO_INCREMENT PRIMARY KEY,
+                                    equity_name VARCHAR(20),
+                                    equity_type INT,
+                                    equity_price INT,
+                                    equity_remain_count INT);
+
+CREATE TABLE IF NOT EXISTS user_equities(releation_id INT AUTO_INCREMENT PRIMARY KEY,
+                                         uid INT,
+                                         equity_id INT);
+-- VERSION 1.0.beta --

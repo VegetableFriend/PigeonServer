@@ -1,4 +1,4 @@
-package org.vf.business.mappers;
+package org.vf.business.mappers.user;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;

@@ -3,7 +3,7 @@ package org.vf.business.file;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.vf.business.mappers.FileMapper;
+import org.vf.business.mappers.file.FileMapper;
 
 import java.util.List;
 

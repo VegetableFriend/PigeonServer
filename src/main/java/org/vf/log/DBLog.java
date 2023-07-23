@@ -11,6 +11,6 @@ public class DBLog {
 
     @Before("execution(* org.vf.business.file.FileController.filePreCreate(..))")
     public void logForFilePrecreate() {
-        logger.info("预创建接口调用了");
+        logger.info("Pre create file start");
     }
 }

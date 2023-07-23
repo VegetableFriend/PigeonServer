@@ -4,9 +4,12 @@ public class User {
     private int uid;
     private String account;
 
-    User(int uid, String account) {
+    private String password;
+
+    User(int uid, String account, String password) {
         this.uid = uid;
         this.account = account;
+        this.password = password;
     }
 
     public int getUid() {
@@ -23,5 +26,13 @@ public class User {
 
     public void setUid(int uid) {
         this.uid = uid;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }

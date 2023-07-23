@@ -28,3 +28,5 @@ CREATE TABLE IF NOT EXISTS user_equities(releation_id INT AUTO_INCREMENT PRIMARY
                                          uid INT,
                                          equity_id INT);
 -- VERSION 1.0.beta --
+
+ALTER TABLE users CHANGE password password varchar(60);

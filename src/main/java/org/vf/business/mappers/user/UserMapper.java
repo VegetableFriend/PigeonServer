@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Select;
 import org.vf.business.user.User;
 
 public interface UserMapper {
-    @Select("select uid, account from users where account = #{account}")
+    @Select("select uid, account, password from users where account = #{account}")
     User getUserByAccount(@Param("account") String account);
 
     @Options(useGeneratedKeys = true, keyProperty = "User.uid", keyColumn = "uid")

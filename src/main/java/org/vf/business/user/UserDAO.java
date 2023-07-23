@@ -9,11 +9,17 @@ public class UserDAO {
     @Autowired
     UserMapper userMapper;
 
-    public void registerUser(User user,String account, String password) {
+    public User registerUser(User user,String account, String password) {
         userMapper.registerUser(user, account, password);
+
+        return user;
     }
 
     public User login(String account, String password) {
+        return userMapper.getUserByAccount(account);
+    }
+
+    public User loadUserByAccount(String account) {
         return userMapper.getUserByAccount(account);
     }
 }

@@ -38,9 +38,9 @@ public class PigeonSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable().
                 exceptionHandling().authenticationEntryPoint(this.authenticationEntryPoint).and().
                 authorizeRequests().
-                antMatchers("/register").anonymous().
-                anyRequest().authenticated().and().
-                formLogin().successHandler(this.authenticationSuccessHandler);
+//                antMatchers("/register").anonymous().
+                anyRequest().anonymous().and().
+                formLogin().successHandler(this.authenticationSuccessHandler).and().rememberMe();
     }
 
     @Bean

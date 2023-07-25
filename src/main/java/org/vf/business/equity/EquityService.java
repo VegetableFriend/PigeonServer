@@ -12,9 +12,9 @@ public class EquityService {
     void purchaseEquity(int type) {
         int remainCount = this.equityDAO.equityRemainCount(type);
 
-        if (remainCount > 0) {
+//        if (remainCount > 0) {
             this.equityDAO.decreaseEquityCount(type);
             this.equityDAO.updateUserEquitiesStatus(0, type);
-        }
+//        }
     }
 }

@@ -1,4 +1,4 @@
-package org.vf.config.security;
+package org.vf.configs.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -10,7 +10,7 @@ import org.springframework.security.web.savedrequest.SavedRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.vf.business.user.User;
-import org.vf.middleware.redis.RedisService;
+import org.vf.services.cache.RedisService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

@@ -1,4 +1,4 @@
-package org.vf.business.mappers.equity;
+package org.vf.business.equity;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

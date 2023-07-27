@@ -1,11 +1,9 @@
-package org.vf.business.mappers.user;
+package org.vf.business.user;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.vf.business.user.User;
 
+@Mapper
 public interface UserMapper {
     @Select("select uid, account, password from users where account = #{account}")
     User getUserByAccount(@Param("account") String account);

@@ -1,4 +1,4 @@
-package org.vf.business.file.slice;
+package org.vf.business.filepart;
 
 enum FileSliceStatus {
     FILE_SLICE_STATUS_NOT_UPLOAD(0),

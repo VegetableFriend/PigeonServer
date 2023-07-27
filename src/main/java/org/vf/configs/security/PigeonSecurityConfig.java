@@ -1,4 +1,4 @@
-package org.vf.config.security;
+package org.vf.configs.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -12,9 +12,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-
-import javax.sql.DataSource;
-import javax.xml.crypto.Data;
 
 @Configuration
 @EnableWebSecurity

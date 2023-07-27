@@ -1,7 +1,6 @@
-package org.vf.config;
+package org.vf.configs;
 
 import org.springframework.context.annotation.*;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 

@@ -2,7 +2,6 @@ package org.vf.business.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.vf.business.mappers.user.UserMapper;
 
 @Component
 public class UserDAO {

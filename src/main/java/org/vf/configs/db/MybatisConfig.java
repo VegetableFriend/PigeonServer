@@ -1,7 +1,8 @@
-package org.vf.config.db;
+package org.vf.configs.db;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 
-@MapperScan("org.vf.business.mappers")
+@MapperScan(basePackages = "org.vf.business", annotationClass = Mapper.class)
 @Configuration
 public class MybatisConfig {
     @Bean

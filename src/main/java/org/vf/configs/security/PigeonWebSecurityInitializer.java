@@ -1,4 +1,4 @@
-package org.vf.config.security;
+package org.vf.configs.security;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

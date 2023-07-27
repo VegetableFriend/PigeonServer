@@ -1,4 +1,4 @@
-package org.vf.business.file.slice;
+package org.vf.business.filepart;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

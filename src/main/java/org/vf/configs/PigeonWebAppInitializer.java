@@ -1,4 +1,4 @@
-package org.vf.config;
+package org.vf.configs;
 
 import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;

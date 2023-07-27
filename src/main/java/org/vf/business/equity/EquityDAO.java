@@ -2,8 +2,7 @@ package org.vf.business.equity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.vf.business.mappers.equity.EquityMapper;
-import org.vf.business.mappers.equity.UserEquitiesMapper;
+
 @Component
 public class EquityDAO {
     @Autowired

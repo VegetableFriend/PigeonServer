@@ -1,10 +1,9 @@
-package org.vf.business.mappers.file;
+package org.vf.business.filepart;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
-import org.vf.business.file.slice.FileSlice;
+import org.vf.business.filepart.FileSlice;
 
 import java.util.List;
 @Mapper

@@ -1,10 +1,14 @@
 package org.vf.business.file;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.web.bind.annotation.*;
-import org.vf.business.file.slice.FileSliceService;
+import org.springframework.web.multipart.MultipartFile;
+import org.vf.business.filepart.FileSliceService;
 
-import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +38,17 @@ public class FileController {
     public void fileCreate(@RequestParam("fid") int fid,
                            @RequestParam("file_md5") String md5) {
         this.fileService.fileCreate(fid, md5);
+    }
+
+    @RequestMapping(value = "/download", method = RequestMethod.POST)
+    public Resource processUpload(@RequestPart("filepath") String filePath) {
+        java.io.File destFile = new java.io.File(filePath);
+
+        try {
+            return new UrlResource(destFile.toURI());
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)

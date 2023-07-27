@@ -1,4 +1,4 @@
-package org.vf.config;
+package org.vf.configs;
 
 import org.springframework.context.annotation.*;
 import org.springframework.web.bind.annotation.RestController;

@@ -2,21 +2,19 @@ package org.vf.filters;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.vf.services.cache.RedisService;
+import org.vf.constants.Constants;
+import org.vf.services.session.SessionServiceDispatcher;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import java.io.IOException;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 
 @Component("pigeonUidLoadFilter")
 public class PigeonUidLoadFilter implements Filter {
 
     @Autowired
-    RedisService redisService;
+    SessionServiceDispatcher sessionServiceDispatcher;
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -29,25 +27,15 @@ public class PigeonUidLoadFilter implements Filter {
             HttpServletRequest httpServletRequest = (HttpServletRequest)servletRequest;
             HttpServletRequestWrapper httpServletRequestWrapper = new HttpServletRequestWrapper((HttpServletRequest) httpServletRequest) {
                 @Override
-                public Map<String, String[]> getParameterMap() {
-                    String uid = PigeonUidLoadFilter.this.redisService.valueForKey(httpServletRequest.getSession().getId());
-
-                    HashMap<String, String[]> newMap = new HashMap<>();
-                    newMap.putAll(super.getParameterMap());
-                    newMap.put("uid", new String[]{uid}) ;
-                    return Collections.unmodifiableMap(newMap);
-                }
-
-                @Override
-                public String getParameter(String name) {
-                    if (name.equals("uid")) {
-                        return PigeonUidLoadFilter.this.redisService.valueForKey(httpServletRequest.getSession().getId());
+                public String getParameter(String paramName) {
+                    if (Constants.USER_ID_PARAM_KEY.equals(paramName)) {
+                        return PigeonUidLoadFilter.this.sessionServiceDispatcher.
+                                getUidWithSession(httpServletRequest.getSession().getId());
                     } else {
-                        return super.getParameter(name);
+                        return super.getParameter(paramName);
                     }
                 }
             };
-
 
             filterChain.doFilter(httpServletRequestWrapper, servletResponse);
         }

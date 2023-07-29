@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.vf.business.user.User;
 import org.vf.services.cache.RedisService;
+import org.vf.services.session.SessionServiceDispatcher;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +24,7 @@ public class PigeonSavedRequestAwareAuthenticationSuccessHandler extends SimpleU
     RequestCache requestCache;
 
     @Autowired
-    RedisService redisService;
+    SessionServiceDispatcher sessionServiceDispatcher;
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
@@ -50,14 +51,11 @@ public class PigeonSavedRequestAwareAuthenticationSuccessHandler extends SimpleU
     }
 
     private void saveRequestSessionIdAndUid(HttpServletRequest request, Authentication authentication) {
-        this.redisService.setValueForKey(this.sessionIdFrom(request), this.uidFrom(authentication));
+        String uid = this.getUidFromAuthentication(authentication);
+        this.sessionServiceDispatcher.setUidForSession(request.getSession().getId(), uid);
     }
 
-    private String sessionIdFrom(HttpServletRequest request) {
-        return request.getSession().getId();
-    }
-
-    private String uidFrom(Authentication authentication) {
+    private String getUidFromAuthentication(Authentication authentication) {
         String uid = "";
 
         Object obj = authentication.getPrincipal();
